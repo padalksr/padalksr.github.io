@@ -34,8 +34,10 @@
         An immersive VR experience developed at the University of Cincinnati’s Digital Futures Smart Manufacturing Lab to simulate modern clean-room semiconductor fabrication processes. This initiative supports workforce development in the chip industry through realistic, risk-free virtual training—encompassing photolithography, etching, annealing, sheet resistivity measurement, and thin-film deposition.
       </p>
       <p class="text-sm md:text-base text-slate-300 max-w-3xl">
-        In Summer 2024, this system was used to train over 60 high-school students in a workshop hosted by UC and Intel. Learn more about the program <a href="https://www.uc.edu/news/articles/2024/07/uc-begins-training-students-workers-in-microchip-manufacturing.html" class="text-sky-400 underline" target="_blank">here</a>. :contentReference[oaicite:0]{index=0}
+      In Summer 2024, this system was used to train over 60 high-school students in a workshop hosted by UC and Intel. Learn more about the program
+        <a href="https://www.uc.edu/news/articles/2024/07/uc-begins-training-students-workers-in-microchip-manufacturing.html" class="text-sky-400 underline" target="_blank">here</a>.
       </p>
+
     </section>
 
     <!-- SECTION: Photo + Goals -->
@@ -54,7 +56,7 @@
           <li>Bridge the gap between coursework and practical clean-room operations, enabling learners to transition confidently into real fabrication workflows.</li>
           <li>Improve understanding of core procedures—photolithography, etching, annealing, deposition, and measurement—via interactive virtual tools and simulations.</li>
           <li>Facilitate repeatable practice and performance tracking using embedded tutorials, videos, and AI-guided feedback widgets.</li>
-          <li>Support the broader semiconductor workforce initiative at UC and align with credentialing pathways for microchip manufacturing skills. :contentReference[oaicite:1]{index=1}</li>
+          <li>Support the broader semiconductor workforce initiative at UC and align with credentialing pathways for microchip manufacturing skills.</li>
         </ul>
 
         <h2 class="text-lg font-semibold mt-6">Learning Objectives</h2>
@@ -79,9 +81,83 @@
     <section class="space-y-6">
       <h2 class="text-lg md:text-xl font-semibold">Modules in This VR Experience</h2>
       <div class="grid md:grid-cols-2 gap-6">
-        <!-- card elements (photolithography, RIE, RTA, Sheet Resistivity, E-Beam) -->
-        … <!-- keep your existing card HTML here -->
-      </div>
+
+  <!-- Photolithography -->
+  <article class="rounded-2xl border border-slate-800 bg-slate-900/50 p-5 space-y-2">
+    <p class="text-[11px] uppercase tracking-[0.25em] text-sky-400">
+      Photolithography · Mask Aligner
+    </p>
+    <h3 class="font-semibold text-sm md:text-base">
+      Photolithography with EVG® 620 Mask Aligner
+    </h3>
+    <p class="text-xs md:text-sm text-slate-300">
+      Walks learners through the full lithography workflow: dehydration bake, adhesion promotion, photoresist
+      coating, soft bake, exposure and development.
+    </p>
+    <ul class="list-disc list-inside text-xs text-slate-400 space-y-1">
+      <li>Operate oven, spin coater, hot plates and EVG 620 mask aligner.</li>
+      <li>Practice mask loading, UV exposure and DI water rinsing.</li>
+      <li>Connect each step to its role in chip fabrication.</li>
+    </ul>
+  </article>
+
+  <!-- Reactive Ion Etching -->
+  <article class="rounded-2xl border border-slate-800 bg-slate-900/50 p-5 space-y-2">
+    <p class="text-[11px] uppercase tracking-[0.25em] text-sky-400">
+      Plasma · Reactive Ion Etching
+    </p>
+    <h3 class="font-semibold text-sm md:text-base">
+      Reactive Ion Etching (RIE) Module
+    </h3>
+    <p class="text-xs md:text-sm text-slate-300">
+      Simulates the MARCH CS-1701 system for plasma-based pattern transfer into thin films.
+    </p>
+    <ul class="list-disc list-inside text-xs text-slate-400 space-y-1">
+      <li>Turn on chiller, RF generator and RIE chamber safely.</li>
+      <li>Configure gas lines and recipe parameters using VR widgets.</li>
+      <li>Load/unload wafers and observe etch completion feedback.</li>
+    </ul>
+  </article>
+
+  <!-- Rapid Thermal Annealing -->
+  <article class="rounded-2xl border border-slate-800 bg-slate-900/50 p-5 space-y-2">
+    <p class="text-[11px] uppercase tracking-[0.25em] text-sky-400">
+      Thermal · Rapid Thermal Annealing
+    </p>
+    <h3 class="font-semibold text-sm md:text-base">
+      Rapid Thermal Annealing (Heatpulse 410)
+    </h3>
+    <p class="text-xs md:text-sm text-slate-300">
+      Models the Heatpulse 410 Rapid Thermal Processor for dopant activation and thin-film treatment.
+    </p>
+    <ul class="list-disc list-inside text-xs text-slate-400 space-y-1">
+      <li>Follow cooling water and nitrogen purging steps.</li>
+      <li>Set temperature/time profiles via interactive controls.</li>
+      <li>Monitor wafer loading, processing and completion.</li>
+    </ul>
+  </article>
+
+  <!-- Sheet Resistivity / E-Beam combined -->
+  <article class="rounded-2xl border border-slate-800 bg-slate-900/50 p-5 space-y-2">
+    <p class="text-[11px] uppercase tracking-[0.25em] text-sky-400">
+      Metrology · Deposition
+    </p>
+    <h3 class="font-semibold text-sm md:text-base">
+      Sheet Resistivity & E-Beam Evaporation
+    </h3>
+    <p class="text-xs md:text-sm text-slate-300">
+      Two complementary modules: one for four-point probe resistivity measurements, and one for thin-film
+      deposition using e-beam evaporation.
+    </p>
+    <ul class="list-disc list-inside text-xs text-slate-400 space-y-1">
+      <li>Operate current source and DMM to log voltage and compute resistivity.</li>
+      <li>Simulate vacuum pump-down, deposition and venting steps for an e-beam tool.</li>
+      <li>Connect measured electrical properties back to process settings.</li>
+    </ul>
+  </article>
+
+</div>
+
     </section>
 
     <!-- SECTION: Gallery -->
@@ -104,8 +180,16 @@
         Short walkthrough of the semiconductor chip manufacturing VR module. This can be a recording from the headset or a screen capture of the PC view.
       </p>
       <div class="aspect-video rounded-2xl overflow-hidden border border-slate-800">
-        <iframe class="w-full h-full" src="https://www.youtube.com/watch?v=fSYFh9NiNAQ" title="Semiconductor VR Training Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
+  <iframe
+    class="w-full h-full"
+    src="https://www.youtube.com/embed/fSYFh9NiNAQ"
+    title="Semiconductor VR Training Demo"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
+
     </section>
 
   </main>
