@@ -41,18 +41,13 @@ header.nav{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--b
 .block ul{margin-left:20px;color:var(--text-2);display:flex;flex-direction:column;gap:8px;margin-bottom:8px}
 .block ul li b{color:var(--text)}
 
-/* videos */
+/* videos (stacked, full width) */
 .videos{display:grid;grid-template-columns:1fr;gap:22px}
 .vid figcaption{font-size:13px;color:var(--text-3);margin-top:8px;font-family:'JetBrains Mono',monospace}
 .vid-frame{aspect-ratio:16/9;border-radius:14px;overflow:hidden;border:1px solid var(--border);background:var(--surface)}
 .vid-frame iframe{width:100%;height:100%;border:0;display:block}
-.vid-ph{aspect-ratio:16/9;border-radius:14px;border:1.5px dashed color-mix(in srgb,var(--accent) 45%,var(--border));background:var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--text-3);text-align:center;padding:20px}
-.vid-ph .play{width:52px;height:52px;border-radius:50%;background:var(--soft-bg);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:20px}
-.vid-ph .t{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.05em;color:var(--text-2)}
-.vid-ph .c{font-size:12px}
-@media(min-width:760px){.videos{grid-template-columns:1fr 1fr}.videos .vid:first-child{grid-column:1 / -1}}
 
-/* spec table */
+/* spec / pipeline table */
 .spec{border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-top:8px}
 .spec .r{display:grid;grid-template-columns:180px 1fr;border-top:1px solid var(--border)}
 .spec .r:first-child{border-top:none}
@@ -87,7 +82,7 @@ footer{border-top:1px solid var(--border);margin-top:40px}
   <section class="phero">
     <span class="eyebrow">VR · LLM · ASME IDETC-CIE 2026</span>
     <h1>LLM-Assisted VR Training for Manufacturing</h1>
-    <p class="sub">A modular, LLM-driven framework that turns unstructured standard operating procedures (SOPs) and spoken user questions into structured, executable VR training steps — validated across three real industrial case studies and published as first-author research.</p>
+    <p class="sub">A modular, LLM-driven framework that turns unstructured standard operating procedures (SOPs) into scalable, executable VR training procedures — without hard-coding each step. Validated across real industrial case studies and published as first-author research.</p>
     <div class="meta-row">
       <span class="pill pill-accent">First-author publication</span>
       <span class="pill">Unreal Engine 5</span>
@@ -100,9 +95,8 @@ footer{border-top:1px solid var(--border);margin-top:40px}
 
   <!-- OVERVIEW -->
   <section class="block">
-    <h2>Overview</h2>
-    <p>Traditional VR training is hand-authored: every step, prompt, and check is scripted by a developer, which makes it slow to build and hard to update when a procedure changes. This project replaces that manual authoring with an LLM-driven pipeline that reads a plant's existing documentation and generates the training on demand.</p>
-    <p>The system takes a factory's SOPs and manuals, lets a trainee ask for a task by voice, and produces a step-by-step VR procedure grounded in the real virtual equipment — while continuously monitoring the trainee's actions to keep them on track. It was built end-to-end in Unreal Engine and deployed on Meta Quest Pro.</p>
+    <h2>Objective</h2>
+    <p>Develop an LLM-driven framework that turns unstructured SOPs into scalable, executable VR training procedures for manufacturing scenarios — without hard-coding each step. Traditional VR training is hand-authored, which makes it slow to build and hard to update when a procedure changes; this framework generates the training on demand from a plant's own documentation.</p>
     <div class="spec">
       <div class="r"><div class="k">ROLE</div><div class="v">First author · framework design and implementation</div></div>
       <div class="r"><div class="k">PARTNERS</div><div class="v">Siemens Digital Industries · Cincinnati Inc. · Valvoline</div></div>
@@ -111,68 +105,57 @@ footer{border-top:1px solid var(--border);margin-top:40px}
     </div>
   </section>
 
-  <!-- VIDEOS -->
-  <section class="block">
-    <h2>See it in action</h2>
-    <p>Short demos of the framework running in VR. <em>(A third clip is being added.)</em></p>
-    <div class="videos">
-
-      <!-- VIDEO 1 -->
-      <figure class="vid">
-        <div class="vid-frame"><iframe src="https://www.youtube.com/embed/xg5nzXlbLvU" title="Voice-guided procedure generation" allowfullscreen></iframe></div>
-        <figcaption>01 · Voice-guided procedure generation — a spoken request becomes an executable VR procedure.</figcaption>
-      </figure>
-
-      <!-- VIDEO 2 -->
-      <figure class="vid">
-        <div class="vid-frame"><iframe src="https://www.youtube.com/embed/u552Pi4hE-U" title="Eye-tracking component grounding" allowfullscreen></iframe></div>
-        <figcaption>02 · Eye-tracking grounding — instructions locked to the correct part in a cluttered scene.</figcaption>
-      </figure>
-
-      <!-- VIDEO 3 -->
-      <figure class="vid">
-        <!-- TO ADD THE VIDEO: replace the whole <div class="vid-ph">...</div> below with:
-        <div class="vid-frame"><iframe src="https://www.youtube.com/embed/VIDEO_ID_3" title="Runtime step monitoring" allowfullscreen></iframe></div> -->
-        <div class="vid-ph">
-          <div class="play">▶</div>
-          <div class="t">VIDEO 3 — COMING SOON</div>
-          <div class="c">Runtime step monitoring &amp; verification</div>
-        </div>
-        <figcaption>03 · Runtime monitoring — action-specific checks confirm each step before advancing.</figcaption>
-      </figure>
-
-    </div>
-  </section>
-
   <!-- IMPACT -->
   <section class="block">
     <h2>Impact</h2>
     <ul>
-      <li><b>Faster to build, easier to maintain.</b> Training procedures are generated from existing SOPs and manuals instead of being hand-scripted, so new tasks and updates no longer require rebuilding the VR content.</li>
-      <li><b>Validated on real tasks.</b> Tested across three industrial case studies — press-brake gage alignment, atomic layer deposition, and semiconductor wafer resistivity measurement — reaching up to <b>0.92 F1-score</b> on procedural step alignment against expert reference SOPs.</li>
-      <li><b>Efficient at runtime.</b> Pre-generated execution plans reduced live LLM calls, latency, and token cost, keeping the experience responsive in VR.</li>
+      <li><b>Reduces dependence on manually scripted workflows.</b> Training is generated from existing SOPs and manuals instead of being hand-authored, so new tasks and updates no longer mean rebuilding the VR content.</li>
+      <li><b>Enables scalable operator training</b> across diverse manufacturing machines and tasks.</li>
+      <li><b>Bridges unstructured SOPs and executable VR guidance</b> — turning documents people already have into step-by-step procedures inside the headset.</li>
+      <li><b>Validated on real tasks.</b> Across three case studies — press-brake gage alignment, atomic layer deposition, and wafer resistivity measurement — reaching up to <b>0.92 F1-score</b> on procedural step alignment against expert reference SOPs.</li>
     </ul>
+  </section>
+
+  <!-- VIDEOS -->
+  <section class="block">
+    <h2>See it in action</h2>
+    <p>Short demos of the framework running in VR.</p>
+    <div class="videos">
+      <figure class="vid">
+        <div class="vid-frame"><iframe src="https://www.youtube.com/embed/xg5nzXlbLvU" title="Voice-guided procedure generation" allowfullscreen></iframe></div>
+        <figcaption>01 · Voice-guided procedure generation — a spoken request becomes an executable VR procedure.</figcaption>
+      </figure>
+      <figure class="vid">
+        <div class="vid-frame"><iframe src="https://www.youtube.com/embed/u552Pi4hE-U" title="Eye-tracking component grounding" allowfullscreen></iframe></div>
+        <figcaption>02 · Eye-tracking grounding — instructions locked to the correct part in a cluttered scene.</figcaption>
+      </figure>
+    </div>
   </section>
 
   <!-- NOVELTY -->
   <section class="block">
     <h2>Novelty</h2>
     <ul>
-      <li><b>Manager–worker LLM orchestration.</b> A manager model routes each request across three intent classes (procedure generation, general Q&amp;A, widget interaction) to specialized workers (GPT-4o-mini, Gemini 2.5 Flash), rather than relying on a single prompt.</li>
-      <li><b>Hallucination-guarded generation.</b> A RAG pipeline with JSON-schema-constrained output and provenance metadata keeps generated instructions tied to source documents — important for safety-critical training.</li>
-      <li><b>Eye-tracking spatial grounding.</b> A sphere-of-influence spatial filter with a custom Unreal Blueprint class grounds instructions to the correct virtual component in cluttered scenes.</li>
-      <li><b>Deterministic runtime verification.</b> A state-based monitoring engine checks each action (distance, gaze dwell, positional error, snap-to-place within 5&nbsp;cm) for stable, reliable step progression.</li>
+      <li><b>LLM abstraction layer.</b> Turns unstructured SOPs into executable VR steps — a manager model routes each request (procedure generation, Q&amp;A, widget interaction) to specialized workers (GPT-4o-mini, Gemini 2.5 Flash).</li>
+      <li><b>Pre-generated execution plans</b> that cut latency, cost, and procedural drift, keeping the experience responsive in VR.</li>
+      <li><b>Unified grounding + monitoring.</b> Eye-tracking with sphere-of-influence spatial filtering and action-driven verification keep instructions tied to the right component and confirm each step before advancing.</li>
+      <li><b>Hallucination-guarded generation.</b> A RAG pipeline with JSON-schema-constrained output ties instructions to source documents — important for safety-critical training.</li>
     </ul>
   </section>
 
   <!-- INDUSTRY ADAPTABILITY -->
   <section class="block">
     <h2>Industry adaptability</h2>
-    <p>The framework is designed to drop into a real plant's workflow rather than a lab demo. Because it builds training from a company's own SOPs and manuals, it can be re-pointed at a new machine, line, or facility without re-authoring the experience by hand.</p>
-    <ul>
-      <li>Works from documentation manufacturers already have, lowering the cost of standing up new training.</li>
-      <li>Voice-driven and hands-free, suited to shop-floor and assembly settings.</li>
-      <li>Developed with industry partners (Siemens Digital Industries, Cincinnati Inc., Valvoline) toward pilot deployment.</li>
+    <p>The framework is built to drop into a real plant's workflow, not just a lab demo. It runs as a simple pipeline over documentation manufacturers already have:</p>
+    <div class="spec">
+      <div class="r"><div class="k">INPUT</div><div class="v">Machine manuals &amp; SOPs (PDFs), equipment list, 3D CAD model, and the VR factory / cleanroom environment.</div></div>
+      <div class="r"><div class="k">PROCESSING</div><div class="v">Extract and structure text, identify components from the equipment list, classify action keywords, generate procedure steps, and monitor user actions in VR.</div></div>
+      <div class="r"><div class="k">OUTPUT</div><div class="v">A VR training module with LLM-generated step-by-step instructions, real-time monitoring, and interactive VR HMI guidance.</div></div>
+      <div class="r"><div class="k">USE CASES</div><div class="v">Press-brake alignment procedure · semiconductor chip manufacturing.</div></div>
+    </div>
+    <ul style="margin-top:16px">
+      <li>Enables rapid reconfiguration of training when processes, machines, or safety standards change.</li>
+      <li>Reduces manual procedure-authoring effort while providing consistent, structured instructions.</li>
     </ul>
   </section>
 
