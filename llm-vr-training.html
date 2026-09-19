@@ -13,13 +13,13 @@
 html{scroll-behavior:smooth}
 body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
 a{color:inherit;text-decoration:none}
-.wrap{max-width:900px;margin:0 auto;padding:0 24px}
+.wrap{max-width:980px;margin:0 auto;padding:0 24px}
 h1,h2,h3{font-family:'Space Grotesk',sans-serif;letter-spacing:-.01em;line-height:1.15}
 .eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
 
 /* nav */
 header.nav{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
-.nav-in{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:900px;margin:0 auto}
+.nav-in{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:980px;margin:0 auto}
 .brand{font-family:'Space Grotesk';font-weight:700}
 .brand span{color:var(--accent)}
 .back{font-size:14px;color:var(--text-2)}
@@ -38,22 +38,33 @@ header.nav{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--b
 .block:first-of-type{border-top:none;margin-top:20px}
 .block h2{font-size:22px;margin-bottom:14px}
 .block p{color:var(--text-2);margin-bottom:14px}
-.block ul{margin-left:20px;color:var(--text-2);display:flex;flex-direction:column;gap:8px;margin-bottom:8px}
-.block ul li b{color:var(--text)}
 
-/* videos (stacked, full width) */
-.videos{display:grid;grid-template-columns:1fr;gap:22px}
-.vid figcaption{font-size:13px;color:var(--text-3);margin-top:8px;font-family:'JetBrains Mono',monospace}
-.vid-frame{aspect-ratio:16/9;border-radius:14px;overflow:hidden;border:1px solid var(--border);background:var(--surface)}
-.vid-frame iframe{width:100%;height:100%;border:0;display:block}
-
-/* spec / pipeline table */
+/* objective spec table */
 .spec{border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-top:8px}
-.spec .r{display:grid;grid-template-columns:180px 1fr;border-top:1px solid var(--border)}
+.spec .r{display:grid;grid-template-columns:150px 1fr;border-top:1px solid var(--border)}
 .spec .r:first-child{border-top:none}
 .spec .k{padding:12px 16px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-3);background:var(--surface-2);letter-spacing:.05em}
 .spec .v{padding:12px 16px;font-size:14px;color:var(--text-2)}
 @media(max-width:560px){.spec .r{grid-template-columns:1fr}.spec .k{border-bottom:1px solid var(--border)}}
+
+/* two-panel layout: Impact & Novelty  |  Industry Adaptability */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:26px;box-shadow:var(--shadow)}
+.panel h2{font-size:20px;margin-bottom:4px}
+.panel .sub{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:18px 0 8px}
+.panel p{color:var(--text-2);font-size:14px;margin-bottom:12px}
+.panel ul{margin-left:18px;color:var(--text-2);display:flex;flex-direction:column;gap:8px;font-size:14px}
+.panel ul li b{color:var(--text)}
+.pipe{display:flex;flex-direction:column;gap:12px;margin:6px 0 16px}
+.pipe .k{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--accent);display:block;margin-bottom:2px}
+.pipe .v{font-size:13.5px;color:var(--text-2)}
+@media(max-width:760px){.two-col{grid-template-columns:1fr}}
+
+/* videos */
+.videos{display:grid;grid-template-columns:1fr;gap:22px}
+.vid figcaption{font-size:13px;color:var(--text-3);margin-top:8px;font-family:'JetBrains Mono',monospace}
+.vid-frame{aspect-ratio:16/9;border-radius:14px;overflow:hidden;border:1px solid var(--border);background:var(--surface)}
+.vid-frame iframe{width:100%;height:100%;border:0;display:block}
 
 .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px}
 .btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;font-weight:600;font-size:14px;padding:10px 20px;cursor:pointer;transition:.2s}
@@ -63,7 +74,7 @@ header.nav{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--b
 .btn-ghost:hover{border-color:var(--accent)}
 
 footer{border-top:1px solid var(--border);margin-top:40px}
-.foot-in{display:flex;justify-content:space-between;font-size:12px;color:var(--text-3);padding:20px 24px;max-width:900px;margin:0 auto;font-family:'JetBrains Mono',monospace}
+.foot-in{display:flex;justify-content:space-between;font-size:12px;color:var(--text-3);padding:20px 24px;max-width:980px;margin:0 auto;font-family:'JetBrains Mono',monospace}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
 </style>
@@ -93,7 +104,7 @@ footer{border-top:1px solid var(--border);margin-top:40px}
     </div>
   </section>
 
-  <!-- OVERVIEW -->
+  <!-- OBJECTIVE -->
   <section class="block">
     <h2>Objective</h2>
     <p>Develop an LLM-driven framework that turns unstructured SOPs into scalable, executable VR training procedures for manufacturing scenarios — without hard-coding each step. Traditional VR training is hand-authored, which makes it slow to build and hard to update when a procedure changes; this framework generates the training on demand from a plant's own documentation.</p>
@@ -105,15 +116,44 @@ footer{border-top:1px solid var(--border);margin-top:40px}
     </div>
   </section>
 
-  <!-- IMPACT -->
+  <!-- IMPACT & NOVELTY  |  INDUSTRY ADAPTABILITY -->
   <section class="block">
-    <h2>Impact</h2>
-    <ul>
-      <li><b>Reduces dependence on manually scripted workflows.</b> Training is generated from existing SOPs and manuals instead of being hand-authored, so new tasks and updates no longer mean rebuilding the VR content.</li>
-      <li><b>Enables scalable operator training</b> across diverse manufacturing machines and tasks.</li>
-      <li><b>Bridges unstructured SOPs and executable VR guidance</b> — turning documents people already have into step-by-step procedures inside the headset.</li>
-      <li><b>Validated on real tasks.</b> Across three case studies — press-brake gage alignment, atomic layer deposition, and wafer resistivity measurement — reaching up to <b>0.92 F1-score</b> on procedural step alignment against expert reference SOPs.</li>
-    </ul>
+    <div class="two-col">
+
+      <div class="panel">
+        <h2>Impact &amp; Novelty</h2>
+        <div class="sub">Impact</div>
+        <ul>
+          <li><b>Reduces dependence on manually scripted workflows</b> — training is generated from existing SOPs instead of hand-authored.</li>
+          <li><b>Enables scalable operator training</b> across diverse manufacturing machines and tasks.</li>
+          <li><b>Bridges unstructured SOPs and executable VR guidance.</b></li>
+          <li><b>Validated on real tasks</b> — up to <b>0.92 F1-score</b> across three case studies (press-brake gage alignment, atomic layer deposition, wafer resistivity).</li>
+        </ul>
+        <div class="sub">Novelty</div>
+        <ul>
+          <li><b>LLM abstraction layer</b> turning unstructured SOPs into executable VR steps via manager–worker orchestration (GPT-4o-mini, Gemini).</li>
+          <li><b>Pre-generated execution plans</b> cutting latency, cost, and procedural drift.</li>
+          <li><b>Unified grounding + monitoring</b> via eye-tracking, spatial filtering, and action-driven verification.</li>
+          <li><b>Hallucination-guarded generation</b> — RAG with JSON-schema-constrained output tied to source documents.</li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <h2>Industry Adaptability</h2>
+        <p>Built to drop into a real plant's workflow, not just a lab demo — it runs as a simple pipeline over documentation manufacturers already have:</p>
+        <div class="pipe">
+          <div class="row"><span class="k">INPUT</span><span class="v">Machine manuals &amp; SOPs (PDFs), equipment list, 3D CAD model, VR factory / cleanroom environment.</span></div>
+          <div class="row"><span class="k">PROCESSING</span><span class="v">Extract &amp; structure text, identify components, classify action keywords, generate procedure steps, monitor user actions in VR.</span></div>
+          <div class="row"><span class="k">OUTPUT</span><span class="v">VR training module with LLM-generated step-by-step instructions, real-time monitoring, interactive VR HMI.</span></div>
+          <div class="row"><span class="k">USE CASES</span><span class="v">Press-brake alignment procedure · semiconductor chip manufacturing.</span></div>
+        </div>
+        <ul>
+          <li>Enables rapid reconfiguration when processes, machines, or safety standards change.</li>
+          <li>Reduces manual authoring effort while keeping instructions consistent and structured.</li>
+        </ul>
+      </div>
+
+    </div>
   </section>
 
   <!-- VIDEOS -->
@@ -130,33 +170,6 @@ footer{border-top:1px solid var(--border);margin-top:40px}
         <figcaption>02 · Eye-tracking grounding — instructions locked to the correct part in a cluttered scene.</figcaption>
       </figure>
     </div>
-  </section>
-
-  <!-- NOVELTY -->
-  <section class="block">
-    <h2>Novelty</h2>
-    <ul>
-      <li><b>LLM abstraction layer.</b> Turns unstructured SOPs into executable VR steps — a manager model routes each request (procedure generation, Q&amp;A, widget interaction) to specialized workers (GPT-4o-mini, Gemini 2.5 Flash).</li>
-      <li><b>Pre-generated execution plans</b> that cut latency, cost, and procedural drift, keeping the experience responsive in VR.</li>
-      <li><b>Unified grounding + monitoring.</b> Eye-tracking with sphere-of-influence spatial filtering and action-driven verification keep instructions tied to the right component and confirm each step before advancing.</li>
-      <li><b>Hallucination-guarded generation.</b> A RAG pipeline with JSON-schema-constrained output ties instructions to source documents — important for safety-critical training.</li>
-    </ul>
-  </section>
-
-  <!-- INDUSTRY ADAPTABILITY -->
-  <section class="block">
-    <h2>Industry adaptability</h2>
-    <p>The framework is built to drop into a real plant's workflow, not just a lab demo. It runs as a simple pipeline over documentation manufacturers already have:</p>
-    <div class="spec">
-      <div class="r"><div class="k">INPUT</div><div class="v">Machine manuals &amp; SOPs (PDFs), equipment list, 3D CAD model, and the VR factory / cleanroom environment.</div></div>
-      <div class="r"><div class="k">PROCESSING</div><div class="v">Extract and structure text, identify components from the equipment list, classify action keywords, generate procedure steps, and monitor user actions in VR.</div></div>
-      <div class="r"><div class="k">OUTPUT</div><div class="v">A VR training module with LLM-generated step-by-step instructions, real-time monitoring, and interactive VR HMI guidance.</div></div>
-      <div class="r"><div class="k">USE CASES</div><div class="v">Press-brake alignment procedure · semiconductor chip manufacturing.</div></div>
-    </div>
-    <ul style="margin-top:16px">
-      <li>Enables rapid reconfiguration of training when processes, machines, or safety standards change.</li>
-      <li>Reduces manual procedure-authoring effort while providing consistent, structured instructions.</li>
-    </ul>
   </section>
 
   <!-- CTA -->
